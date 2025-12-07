@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Subscription {
+  id        String   @id @default(cuid())
+  name      String
+  price     Float
+  startDate DateTime
+  category  String   @default("Autre") // Nouveau champ
+  createdAt DateTime @default(now())
+}
