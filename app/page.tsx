@@ -9,6 +9,7 @@ export default async function Home() {
     orderBy: { createdAt: 'desc' }
   })
 
+  // Petite astuce TS : "acc: number" force le type pour éviter l'erreur de tout à l'heure
   const total = subs.reduce((acc: number, sub) => acc + sub.price, 0)
 
   // Petite fonction pour la couleur des badges
@@ -124,6 +125,26 @@ export default async function Home() {
             ))
           )}
         </div>
+
+        {/* FOOTER - DISCLAIMER MODE DÉMO */}
+        <footer className="mt-12 py-6 border-t border-slate-800 text-center">
+          <p className="text-amber-400/80 text-sm font-medium mb-2">
+            ⚠️ Mode Démo Publique
+          </p>
+          <p className="text-slate-500 text-xs max-w-md mx-auto">
+            Cette application est une démonstration technique. Toutes les données ajoutées sont visibles par tous les visiteurs et réinitialisées régulièrement.
+          </p>
+          
+          <div className="mt-4">
+             <a 
+               href="https://github.com/kyliango/subflow-portfolio" 
+               target="_blank" 
+               className="text-indigo-400 hover:text-indigo-300 text-xs underline decoration-indigo-500/30 underline-offset-4 transition-colors"
+             >
+               Voir le code source sur GitHub
+             </a>
+          </div>
+        </footer>
 
       </div>
     </main>
